@@ -3,11 +3,7 @@ var database = null;
 var nextUser = 101;
 
 function initDatabase() {
-  database = window.sqlitePlugin.openDatabase({name: 'sample.db', location: 'default'});
-
-  database.transaction(function(transaction) {
-    transaction.executeSql('CREATE TABLE SampleTable (name, score)');
-  });
+  database = window.sqlitePlugin.openDatabase({name: 'sample.db', location: 'default', createFromLocation: 1});
 }
 
 function echoTest() {
@@ -47,6 +43,16 @@ function stringTest2() {
     });
   }, function(error) {
     navigator.notification.alert('SELECT count error: ' + error.message);
+  });
+}
+
+function showFirst() {
+  database.transaction(function(transaction) {
+    transaction.executeSql('SELECT * FROM SampleTable', [], function(ignored, resultSet) {
+      navigator.notification.alert('FIRST RECORD: ' + JSON.stringify(resultSet.rows.item(0)));
+    });
+  }, function(error) {
+    navigator.notification.alert('SELECT error: ' + error.message);
   });
 }
 
@@ -140,6 +146,7 @@ document.addEventListener('deviceready', function() {
   $('#reload').click(reload);
   $('#string-test-1').click(stringTest1);
   $('#string-test-2').click(stringTest2);
+  $('#show-first').click(showFirst);
   $('#show-count').click(showCount);
   $('#add-record').click(addRecord);
   $('#add-json-records-after-delay').click(addJSONRecordsAfterDelay);
