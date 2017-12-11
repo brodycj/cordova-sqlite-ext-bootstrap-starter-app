@@ -8,6 +8,8 @@
 
 **IMPORTANT:** Whitelist and intent items are omitted from this test app.
 
+**WINDOWS PLATFORM VERSION NOTICE:** At this point this starter app is supported on Visual Studio 2015 only. UNSUPPORTED WORKAROUND to run on Visual Studio 2017 described at <https://developercommunity.visualstudio.com/content/problem/48806/cant-find-v140-in-visual-studio-2017.html>. Update to support Visual Studio 2017 is expected in the near future.
+
 ## Dependencies
 
 - Bootstrap (3.3.6) - included (MIT license)
