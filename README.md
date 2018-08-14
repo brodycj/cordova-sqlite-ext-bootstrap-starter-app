@@ -4,18 +4,20 @@
 
 **LICENSE:** [CC0 1.0 (public domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-**NOTE:** This project includes JQuery (2.2.4) and Bootstrap (3.3.6) under the MIT license. Otherwise there is no code copied from other sources.
+**NOTE:** This project includes JQuery (3.3.1) and Bootstrap 3 (3.3.7) under the MIT license. Otherwise there is no code copied from other sources.
 
 **IMPORTANT:** Whitelist and intent items are omitted from this test app.
 
 ## Dependencies
 
-- Bootstrap (3.3.6) - included (MIT license)
-- JQuery (2.2.4) - included (MIT license)
+- Bootstrap (3.3.7) - included (MIT license)
+- JQuery (3.3.1) - included (MIT license)
 - `cordova-plugin-dialogs` - specified in `config.xml`
 - `cordova-sqlite-ext` - specified in `config.xml`
 
-NOTE: `cordova-plugin-dialogs` and `cordova-sqlite-ext` were added using the `--save` flag to ensure that these plugins would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
+_IMPORTANT NOTE: `cordova-plugin-dialogs` and `cordova-sqlite-ext` were added using the `--save` flag to ensure that these plugins would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git (this is automatic starting with Cordova `7.0`)._
+
+Additional note: `cordova-plugin-dialogs` does not currently support macOS ("osx"). As a workaround this project automatically uses `window.alert` if necessary.
 
 ## How to run
 
@@ -40,7 +42,7 @@ cordova run android
 ## Functionality
 
 - Upon startup: open the pre-popualted database with 3 records
-- Native alert dialog test
+- Alert dialog test (native alert if possible)
 - Echo test
 - Self test
 - Location reload
